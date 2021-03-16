@@ -1,6 +1,6 @@
 package br.edu.unidep.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +21,7 @@ public class Vendedor {
 	private String empresa;
 	
 	@Column(name = "data_admissao")
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 	
 	@Column(name = "cpf")
 	private Double cpf;
@@ -33,7 +33,7 @@ public class Vendedor {
 		super();
 	}
 
-	public Vendedor(Long codigo, String nome, String empresa, Date dataAdmissao, Double cpf, Boolean ativo) {
+	public Vendedor(Long codigo, String nome, String empresa, LocalDate dataAdmissao, Double cpf, Boolean ativo) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -43,12 +43,62 @@ public class Vendedor {
 		this.ativo = ativo;
 	}
 
-	public Vendedor(String nome, String empresa, Date dataAdmissao, Double cpf, Boolean ativo) {
+	public Vendedor(String nome, String empresa, LocalDate dataAdmissao, Double cpf, Boolean ativo) {
 		super();
 		this.nome = nome;
 		this.empresa = empresa;
 		this.dataAdmissao = dataAdmissao;
 		this.cpf = cpf;
+		this.ativo = ativo;
+	}
+
+	
+	
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public LocalDate getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(LocalDate dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	public Double getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Double cpf) {
+		this.cpf = cpf;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
 

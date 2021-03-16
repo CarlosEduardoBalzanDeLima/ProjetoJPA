@@ -1,6 +1,6 @@
 package br.edu.unidep.principal;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -22,23 +22,18 @@ public class Principal {
 		Conta contaCarlos = new Conta("Carlos Eduardo", 250);
 		Conta contaMateus = new Conta("Mateus", 200);
 		
-		Date dataCliente = new Date();
-		dataCliente.setDate(12);
-		dataCliente.setMonth(02);
-		dataCliente.setYear(1912);
+		LocalDate dataCliente = LocalDate.of(2021, 02, 15);
 		Cliente clienteCarlos = new Cliente("Carlos", 16551165.32, dataCliente, "Coronel Vivida", true);
+		Cliente clienteMateus = new Cliente("Mateus", 16551165.32, dataCliente, "Mariopolis", false);
 		
-		Date dataVendedor = new Date();
-		dataVendedor.setDate(12);
-		dataVendedor.setMonth(02);
-		dataVendedor.setYear(1912);
+		LocalDate dataVendedor = LocalDate.of(2021, 02, 15);
 		Vendedor vendedorCarlos = new Vendedor("Jair Belo", "Sistem Logistics", dataVendedor, 26262622.01, true);
+		Vendedor vendedorMateus = new Vendedor("Mateus Belo", "Sistem Logistics", dataVendedor, 26262622.01, false);
 		
-		Date dataProduto = new Date();
-		dataProduto.setDate(12);
-		dataProduto.setMonth(02);
-		dataProduto.setYear(1912);
-		Produto produtoNovo = new Produto("Coca cola", true, 100, "Litro", dataProduto);
+		
+		
+//		LocalDate dataCliente = LocalDate.of(2021, 02, 15);
+//		Produto produtoNovo = new Produto("Coca cola", true, 100, "Litro", dataProduto);
 		
 
 		EntityManager em = new JPAUtil().getEntityManager();
@@ -51,28 +46,36 @@ public class Principal {
 		
 		em.getTransaction().begin();
 		
-		contaDao.atualizar(em, contaMateus, 2L);
-		
-//		contaDao.inserir(em, contaCarlos);
-		
-//		contaDao.deletar(em, 3L);
-		
 		
 //		em.persist(contaCarlos);
+//		contaDao.atualizar(em, contaMateus, 2L);		
+//		contaDao.inserir(em, contaCarlos);		
+//		contaDao.deletar(em, 3L);		
+//		System.out.println(contaDao.buscarPorId(em, 1L));
 //		List<Conta> contas = contaDao.buscarTodos(em);
 //		
 //		for (Conta conta : contas) {
 //			System.out.println(conta);
 //		}	
 		
-//		em.persist(clienteCarlos);		
-//		List<Cliente> clientes = clienteDao.buscarTodos(em);
-//		
+		
+		em.persist(clienteCarlos);
+//		clienteDao.deletar(em, 1L);
+//		clienteDao.atualizar(em, clienteMateus, 1L);		
+//		clienteDao.inserir(em, clienteMateus);		
+//		System.out.println(clienteDao.buscarPorId(em, 2L));
+//		List<Cliente> clientes = clienteDao.buscarTodos(em);		
 //		for (Cliente cliente : clientes) {
 //			System.out.println(cliente);
 //		}
 		
-//		em.persist(vendedorCarlos);
+		
+		
+		em.persist(vendedorCarlos);
+//		vendedorDao.deletar(em, 1L);
+//		vendedorDao.atualizar(em, vendedorMateus, 1L);
+//		vendedorDao.inserir(em, vendedorMateus);
+//		System.out.println(vendedorDao.buscarPorId(em, 1L));
 //		List<Vendedor> vendedores = vendedorDao.buscarTodos(em);
 //		for (Vendedor vendedor : vendedores) {
 //			System.out.println(vendedor);
@@ -84,10 +87,6 @@ public class Principal {
 //			System.out.println(produto);
 //		}
 
-		
-//		Vendedor vendedorMateus = em.find(Vendedor.class, 1L);
-//		System.out.println(vendedorMateus);
-			
 		
 		em.getTransaction().commit();
 		

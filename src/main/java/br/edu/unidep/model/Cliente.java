@@ -1,6 +1,6 @@
 package br.edu.unidep.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,8 +21,8 @@ public class Cliente {
 	@Column(name = "cpf")
 	private Double cpf;
 	
-	@Column(name = "data_nascimeto")
-	private Date dataAniversario;
+	@Column(name = "data_nascimento")
+	private LocalDate dataAniversario;
 	
 	@Column(name = "cidade")
 	private String cidade;
@@ -34,7 +34,7 @@ public class Cliente {
 		super();
 	}
 
-	public Cliente(Long codigo, String nome, Double cpf, Date dataAniversario, String cidade, Boolean ativo) {
+	public Cliente(Long codigo, String nome, Double cpf, LocalDate dataAniversario, String cidade, Boolean ativo) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -44,12 +44,62 @@ public class Cliente {
 		this.ativo = ativo;
 	}
 
-	public Cliente(String nome, Double cpf, Date dataAniversario, String cidade, Boolean ativo) {
+	public Cliente(String nome, Double cpf, LocalDate dataAniversario, String cidade, Boolean ativo) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataAniversario = dataAniversario;
 		this.cidade = cidade;
+		this.ativo = ativo;
+	}
+
+	
+	
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Double getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Double cpf) {
+		this.cpf = cpf;
+	}
+
+	public LocalDate getDataAniversario() {
+		return dataAniversario;
+	}
+
+	public void setDataAniversario(LocalDate dataAniversario) {
+		this.dataAniversario = dataAniversario;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
 

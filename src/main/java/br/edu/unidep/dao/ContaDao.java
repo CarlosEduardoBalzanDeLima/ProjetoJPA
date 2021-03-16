@@ -81,8 +81,4 @@ public class ContaDao implements ContaRepositorio{
 		return new Conta(codigo.longValue(), (String) array[2], (Double) array[1]);
 	}
 	
-	private void updateDados(Conta conta, Conta contaAtualizada) {
-		conta.setTitular(contaAtualizada.getTitular());
-		conta.setSaldoConta(contaAtualizada.getSaldoConta());
-	}
 }
